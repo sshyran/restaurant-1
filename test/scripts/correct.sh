@@ -1,2 +1,3 @@
 echo 'hello'
-echo 'bye'
+echo 'Running shell script'
+echo 'Done!'

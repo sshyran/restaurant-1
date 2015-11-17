@@ -4,15 +4,17 @@
   "description": "Run shell scripts when a post request is received with the relevant key",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/_mocha"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Goh Jia Hao",
+  "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3"
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "request": "^2.65.0"
   }
 }
