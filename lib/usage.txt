@@ -1,0 +1,17 @@
+Usage: deploy-ear [OPTIONS] COMMAND [arg...]
+       deploy-ear [ -h | --help | -v | --version ]
+
+A small server to listen for a post request and execute a shell command
+
+Options:
+
+  -c, --cmd                       Command to be executed
+  -d, --dir                       Path to .sh script to be executed
+  -h, --help                      Print usage
+  -p, --port                      Port for the server to listen at
+  -v, --version                   Print version information and quit
+
+Commands:
+    start    Starts the listener, will use save configuration if successful
+             so arguments are optional when running it again
+    stop     Stops the listener
