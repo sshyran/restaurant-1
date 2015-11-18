@@ -5,7 +5,7 @@
   },
   "version": "0.1.0",
   "description": "Serve shell scripts when an order (request) is received",
-  "main": "index.js",
+  "main": "lib/restaurant.js",
   "scripts": {
     "test": "mocha"
   },
