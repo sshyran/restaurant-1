@@ -4,7 +4,7 @@
     "restaurant": "lib/cli.js"
   },
   "version": "0.1.0",
-  "description": "Run shell scripts when a post request is received with the relevant key",
+  "description": "Serve shell scripts when an order (request) is received",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
