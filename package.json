@@ -1,7 +1,7 @@
 {
-  "name": "deploy-ear",
+  "name": "rest-aurant",
   "bin": {
-    "deploy-ear": "lib/cli.js"
+    "restaurant": "lib/cli.js"
   },
   "version": "0.1.0",
   "description": "Run shell scripts when a post request is received with the relevant key",

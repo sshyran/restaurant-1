@@ -4,7 +4,7 @@
 
 var request = require('request');
 var assert = require('chai').assert;
-var DeployEar = require('./../lib/deployEar');
+var Restaurant = require('./../lib/restaurant');
 
 const SCRIPT_OPTIONS = {
     scriptDir: __dirname + '/scripts/correct.sh'
@@ -14,9 +14,9 @@ const PORT = 6539;
 const API_ENDPOINT = 'http://127.0.0.1:' + PORT.toString();
 const TIMEOUT = 5000;
 
-new DeployEar(PORT, SCRIPT_OPTIONS, function (error, secret) {
+new Restaurant(PORT, SCRIPT_OPTIONS, function (error, secret) {
 
-    describe('Deploy-Ear Tests', function () {
+    describe('Rest-aurant Tests', function () {
         this.timeout(TIMEOUT);
         it('Can get the secret', function () {
             assert.isTrue(secret.length > 10, 'Callback should return a secret');

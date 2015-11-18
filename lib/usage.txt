@@ -1,5 +1,5 @@
-Usage: deploy-ear [OPTIONS] COMMAND [arg...]
-       deploy-ear [ -h | --help | -v | --version ]
+Usage: restaurant [OPTIONS] COMMAND [arg...]
+       restaurant [ -h | --help | -v | --version ]
 
 A small server to listen for a post request and execute a shell command
 
