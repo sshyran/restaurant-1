@@ -13,9 +13,7 @@ const API_ENDPOINT = 'http://127.0.0.1:' + PORT.toString();
 const SHELL_SCRIPT_PATH =  __dirname + '/scripts/correct.sh';
 const TIMEOUT = 5000;
 
-var cmd = fs.readFileSync(SHELL_SCRIPT_PATH);
-
-var server = new Server(PORT, TEST_KEY, cmd);
+var server = new Server(PORT, TEST_KEY, SHELL_SCRIPT_PATH);
 server.listen();
 
 describe ('Server tests', function () {

@@ -6,15 +6,12 @@ var request = require('request');
 var assert = require('chai').assert;
 var Restaurant = require('./../lib/restaurant');
 
-const SCRIPT_OPTIONS = {
-    scriptDir: __dirname + '/scripts/correct.sh'
-};
-
+var SHELL_SCRIPT_PATH = __dirname + '/scripts/correct.sh';
 const PORT = 6539;
 const API_ENDPOINT = 'http://127.0.0.1:' + PORT.toString();
 const TIMEOUT = 5000;
 
-new Restaurant(PORT, SCRIPT_OPTIONS, function (error, secret) {
+new Restaurant(PORT, SHELL_SCRIPT_PATH, function (error, secret) {
 
     describe('Rest-aurant Tests', function () {
         this.timeout(TIMEOUT);

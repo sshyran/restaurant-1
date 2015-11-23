@@ -9,24 +9,24 @@ var runShell = require('./../lib/runShell');
 
 const CORRECT_SCRIPT = __dirname + '/scripts/correct.sh';
 const FAILING_SCRIPT = __dirname + '/scripts/failing.sh';
+const TIMEOUT = 5000;
 
 describe('Running shell scripts', function () {
+    this.timeout(TIMEOUT);
     it('Can run correct shell scripts without error', function (done) {
-        var cmd = fs.readFileSync(CORRECT_SCRIPT);
-        runShell(cmd, function (error, stdout) {
+        runShell(CORRECT_SCRIPT, function (error, stdout) {
             if (error) {
                 done(error);
                 return;
             }
-            assert.isOk(stdout, 'Some stdout should be printed');
-            done();
 
+            done();
         });
     });
 
     it('Can fail gracefully on bad shell scripts', function (done) {
         var cmd = fs.readFileSync(FAILING_SCRIPT);
-        runShell(cmd, function (error, stdout) {
+        runShell(FAILING_SCRIPT, function (error, stdout) {
             if (error) {
                 assert.isOk(error, 'Error should be something');
                 done();
