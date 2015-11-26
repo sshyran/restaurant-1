@@ -8,20 +8,25 @@ var assert = require('chai').assert;
 var Server = require('./../lib/server');
 
 const PORT = 6538;
-const TEST_KEY = 'abcdef';
+const TEST_SECRET = 'testSecret';
+const WRONG_SECRET = 'wrongkey';
 const API_ENDPOINT = 'http://127.0.0.1:' + PORT.toString();
 const SHELL_SCRIPT_PATH =  __dirname + '/scripts/correct.sh';
 const TIMEOUT = 5000;
 
-var server = new Server(PORT, TEST_KEY, SHELL_SCRIPT_PATH);
-server.listen();
 
 describe ('Server tests', function () {
     this.timeout(TIMEOUT);
+
+    before(function (done) {
+        var server = new Server(PORT, TEST_SECRET, SHELL_SCRIPT_PATH);
+        server.listen(done);
+
+    })
     it ('Can respond to correct requests', function (done) {
         request.post({
                 url: API_ENDPOINT,
-                json: { key: TEST_KEY }
+                json: { secret: TEST_SECRET }
             },
             function (error, response, body) {
                 if (error) {
@@ -35,10 +40,9 @@ describe ('Server tests', function () {
     });
 
     it ('Can respond to incorrect requests', function (done) {
-        const WRONG_KEY = 'wrongkey';
         request.post({
                 url: API_ENDPOINT,
-                json: { key: WRONG_KEY }
+                json: { secret: WRONG_SECRET }
             },
             function (error, response, body) {
                 if (error) {

@@ -10,11 +10,12 @@ var runShell = require('./../lib/runShell');
 const CORRECT_SCRIPT = __dirname + '/scripts/correct.sh';
 const FAILING_SCRIPT = __dirname + '/scripts/failing.sh';
 const TIMEOUT = 5000;
+const SUPPRESS_LOGS = true;
 
 describe('Running shell scripts', function () {
     this.timeout(TIMEOUT);
     it('Can run correct shell scripts without error', function (done) {
-        runShell(CORRECT_SCRIPT, function (error, stdout) {
+        runShell(CORRECT_SCRIPT, SUPPRESS_LOGS, function (error, stdout) {
             if (error) {
                 done(error);
                 return;
@@ -26,7 +27,7 @@ describe('Running shell scripts', function () {
 
     it('Can fail gracefully on bad shell scripts', function (done) {
         var cmd = fs.readFileSync(FAILING_SCRIPT);
-        runShell(FAILING_SCRIPT, function (error, stdout) {
+        runShell(FAILING_SCRIPT, SUPPRESS_LOGS, function (error, stdout) {
             if (error) {
                 assert.isOk(error, 'Error should be something');
                 done();
